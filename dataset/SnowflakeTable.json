@@ -1,0 +1,203 @@
+{
+	"name": "SnowflakeTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "CC_CALL_CENTER_SK",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_CALL_CENTER_ID",
+				"type": "VARCHAR",
+				"precision": 16,
+				"scale": 0
+			},
+			{
+				"name": "CC_REC_START_DATE",
+				"type": "DATE",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CC_REC_END_DATE",
+				"type": "DATE",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CC_CLOSED_DATE_SK",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_OPEN_DATE_SK",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_NAME",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "CC_CLASS",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "CC_EMPLOYEES",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_SQ_FT",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_HOURS",
+				"type": "VARCHAR",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "CC_MANAGER",
+				"type": "VARCHAR",
+				"precision": 40,
+				"scale": 0
+			},
+			{
+				"name": "CC_MKT_ID",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_MKT_CLASS",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "CC_MKT_DESC",
+				"type": "VARCHAR",
+				"precision": 100,
+				"scale": 0
+			},
+			{
+				"name": "CC_MARKET_MANAGER",
+				"type": "VARCHAR",
+				"precision": 40,
+				"scale": 0
+			},
+			{
+				"name": "CC_DIVISION",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_DIVISION_NAME",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "CC_COMPANY",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "CC_COMPANY_NAME",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "CC_STREET_NUMBER",
+				"type": "VARCHAR",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CC_STREET_NAME",
+				"type": "VARCHAR",
+				"precision": 60,
+				"scale": 0
+			},
+			{
+				"name": "CC_STREET_TYPE",
+				"type": "VARCHAR",
+				"precision": 15,
+				"scale": 0
+			},
+			{
+				"name": "CC_SUITE_NUMBER",
+				"type": "VARCHAR",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CC_CITY",
+				"type": "VARCHAR",
+				"precision": 60,
+				"scale": 0
+			},
+			{
+				"name": "CC_COUNTY",
+				"type": "VARCHAR",
+				"precision": 30,
+				"scale": 0
+			},
+			{
+				"name": "CC_STATE",
+				"type": "VARCHAR",
+				"precision": 2,
+				"scale": 0
+			},
+			{
+				"name": "CC_ZIP",
+				"type": "VARCHAR",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CC_COUNTRY",
+				"type": "VARCHAR",
+				"precision": 20,
+				"scale": 0
+			},
+			{
+				"name": "CC_GMT_OFFSET",
+				"type": "NUMBER",
+				"precision": 5,
+				"scale": 2
+			},
+			{
+				"name": "CC_TAX_PERCENTAGE",
+				"type": "NUMBER",
+				"precision": 5,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "MYTABLE",
+			"table": "TABLE"
+		}
+	}
+}
