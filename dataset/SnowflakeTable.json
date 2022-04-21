@@ -196,8 +196,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "MYTABLE",
-			"table": "TABLE"
+			"schema": "TPCDS_SF100TCL",
+			"table": "CALL_CENTER"
 		}
 	}
 }
