@@ -1,0 +1,47 @@
+{
+	"name": "pipeline-snowflake",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data Snowflake",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 3,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SnowflakeSource",
+						"exportSettings": {
+							"type": "SnowflakeExportCopyCommand"
+						}
+					},
+					"sink": {
+						"type": "AzureSearchIndexSink",
+						"writeBatchSize": 1000,
+						"writeBehavior": "merge"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SnowflakeTable",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSearchIndex",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
