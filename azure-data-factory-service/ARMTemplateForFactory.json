@@ -1,0 +1,461 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "azure-data-factory-service"
+		},
+		"AzureSearch_Connection_key": {
+			"type": "secureString",
+			"metadata": "Secure string for 'key' of 'AzureSearch_Connection'"
+		},
+		"Snowflake_Connection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Snowflake_Connection'"
+		},
+		"AzureSearch_Connection_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azure-cognitive-search-service.search.windows.net"
+		},
+		"AzureBlobStorage_Connection_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'AzureBlobStorage_Connection'"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Snowflake_Connection')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "This is a Snowflake connection to import data to be indexed in Azure Cognitive Search.",
+				"annotations": [],
+				"type": "Snowflake",
+				"typeProperties": {
+					"connectionString": "[parameters('Snowflake_Connection_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SnowflakeTable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Snowflake_Connection",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SnowflakeTable",
+				"schema": [
+					{
+						"name": "CC_CALL_CENTER_SK",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_CALL_CENTER_ID",
+						"type": "VARCHAR",
+						"precision": 16,
+						"scale": 0
+					},
+					{
+						"name": "CC_REC_START_DATE",
+						"type": "DATE",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "CC_REC_END_DATE",
+						"type": "DATE",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "CC_CLOSED_DATE_SK",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_OPEN_DATE_SK",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_NAME",
+						"type": "VARCHAR",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "CC_CLASS",
+						"type": "VARCHAR",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "CC_EMPLOYEES",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_SQ_FT",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_HOURS",
+						"type": "VARCHAR",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "CC_MANAGER",
+						"type": "VARCHAR",
+						"precision": 40,
+						"scale": 0
+					},
+					{
+						"name": "CC_MKT_ID",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_MKT_CLASS",
+						"type": "VARCHAR",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "CC_MKT_DESC",
+						"type": "VARCHAR",
+						"precision": 100,
+						"scale": 0
+					},
+					{
+						"name": "CC_MARKET_MANAGER",
+						"type": "VARCHAR",
+						"precision": 40,
+						"scale": 0
+					},
+					{
+						"name": "CC_DIVISION",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_DIVISION_NAME",
+						"type": "VARCHAR",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "CC_COMPANY",
+						"type": "NUMBER",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "CC_COMPANY_NAME",
+						"type": "VARCHAR",
+						"precision": 50,
+						"scale": 0
+					},
+					{
+						"name": "CC_STREET_NUMBER",
+						"type": "VARCHAR",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "CC_STREET_NAME",
+						"type": "VARCHAR",
+						"precision": 60,
+						"scale": 0
+					},
+					{
+						"name": "CC_STREET_TYPE",
+						"type": "VARCHAR",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CC_SUITE_NUMBER",
+						"type": "VARCHAR",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "CC_CITY",
+						"type": "VARCHAR",
+						"precision": 60,
+						"scale": 0
+					},
+					{
+						"name": "CC_COUNTY",
+						"type": "VARCHAR",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "CC_STATE",
+						"type": "VARCHAR",
+						"precision": 2,
+						"scale": 0
+					},
+					{
+						"name": "CC_ZIP",
+						"type": "VARCHAR",
+						"precision": 10,
+						"scale": 0
+					},
+					{
+						"name": "CC_COUNTRY",
+						"type": "VARCHAR",
+						"precision": 20,
+						"scale": 0
+					},
+					{
+						"name": "CC_GMT_OFFSET",
+						"type": "NUMBER",
+						"precision": 5,
+						"scale": 2
+					},
+					{
+						"name": "CC_TAX_PERCENTAGE",
+						"type": "NUMBER",
+						"precision": 5,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "TPCDS_SF100TCL",
+					"table": "CALL_CENTER"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Snowflake_Connection')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSearch_Connection')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSearch",
+				"typeProperties": {
+					"url": "[parameters('AzureSearch_Connection_properties_typeProperties_url')]",
+					"key": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSearch_Connection_key')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSearchIndex')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSearch_Connection",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSearchIndex",
+				"schema": [],
+				"typeProperties": {
+					"indexName": "snowflake-index"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSearch_Connection')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline-snowflake')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data Snowflake",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 3,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SnowflakeSource",
+								"exportSettings": {
+									"type": "SnowflakeExportCopyCommand"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".csv"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "SnowflakeTable",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Index from Storage",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Copy data Snowflake",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 3,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSearchIndexSink",
+								"writeBatchSize": 1000,
+								"writeBehavior": "merge"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSearchIndex",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SnowflakeTable')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSearchIndex')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage_Connection')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"sasUri": "[parameters('AzureBlobStorage_Connection_sasUri')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage_Connection",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "snowflake-container"
+					},
+					"columnDelimiter": ",",
+					"rowDelimiter": "\n",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"nullValue": " ",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_Connection')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "azure-data-factory-service"
+		},
+		"AzureSearch_Connection_key": {
+			"value": ""
+		},
+		"Snowflake_Connection_connectionString": {
+			"value": ""
+		},
+		"AzureSearch_Connection_properties_typeProperties_url": {
+			"value": "https://azure-cognitive-search-service.search.windows.net"
+		},
+		"AzureBlobStorage_Connection_sasUri": {
+			"value": ""
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
