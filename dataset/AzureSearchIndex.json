@@ -1,0 +1,15 @@
+{
+	"name": "AzureSearchIndex",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSearch_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSearchIndex",
+		"schema": [],
+		"typeProperties": {
+			"indexName": "snowflake-index"
+		}
+	}
+}
