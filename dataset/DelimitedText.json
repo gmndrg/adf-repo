@@ -13,6 +13,7 @@
 				"container": "snowflake-container"
 			},
 			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"nullValue": " ",
 			"quoteChar": "\""
