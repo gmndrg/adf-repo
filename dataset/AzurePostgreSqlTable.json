@@ -1,0 +1,71 @@
+{
+	"name": "AzurePostgreSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "bufferid",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "relfilenode",
+				"type": "oid",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "reltablespace",
+				"type": "oid",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "reldatabase",
+				"type": "oid",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "relforknumber",
+				"type": "smallint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "relblocknumber",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "isdirty",
+				"type": "boolean",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "usagecount",
+				"type": "smallint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "pinning_backends",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "pg_buffercache"
+		}
+	}
+}
