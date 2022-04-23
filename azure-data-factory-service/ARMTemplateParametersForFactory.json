@@ -8,6 +8,9 @@
 		"AzureSearch_Connection_key": {
 			"value": ""
 		},
+		"AzurePostgreSql_Connection_connectionString": {
+			"value": ""
+		},
 		"Snowflake_Connection_connectionString": {
 			"value": ""
 		},

@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'key' of 'AzureSearch_Connection'"
 		},
+		"AzurePostgreSql_Connection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzurePostgreSql_Connection'"
+		},
 		"Snowflake_Connection_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Snowflake_Connection'"
@@ -52,6 +56,9 @@
 					},
 					"AzureSearch_Connection_key": {
 						"value": "[parameters('AzureSearch_Connection_key')]"
+					},
+					"AzurePostgreSql_Connection_connectionString": {
+						"value": "[parameters('AzurePostgreSql_Connection_connectionString')]"
 					},
 					"Snowflake_Connection_connectionString": {
 						"value": "[parameters('Snowflake_Connection_connectionString')]"
