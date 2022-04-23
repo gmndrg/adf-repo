@@ -1,0 +1,23 @@
+{
+	"name": "DelimitedTextPostgreSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "postgresql-container"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
